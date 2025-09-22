@@ -1,3 +1,5 @@
+# link for Phases Doc
+https://docs.google.com/document/d/1tYoArg2U0jjB3NE3d9Em9Am2fgXYiXGxRmdRSl6DEpM/edit?usp=sharing
 # Project Title:   Smart Healthcare CRM – Patient Appointment & Care Management System
 Industry:  Healthcare  
 Project Type: B2C Salesforce CRM implementation  
