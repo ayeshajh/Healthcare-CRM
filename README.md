@@ -29,16 +29,27 @@ To overcome these issues, the clinic wants to implement a **Salesforce-based Hea
 ### 4. Notifications & Communication
 * Custom Notifications notify doctors instantly about rescheduled/cancelled appointments.
 * Patients receive appointment updates via SMS/Email.
-### 5. Smart Triage Chatbot (LWC + Einstein Bot)
-* An LWC chatbot powered by Einstein Bot guides patients through symptoms.
-* Based on answers, it either books an appointment or sends automated self-care instructions.
-* Data flows into the patient record for doctors to review before the consultation.
-
+### 5. Apex Development & Async Processing
+* Modular Apex classes, including a trigger handler to keep logic clean and a Queueable class for async SMS/email reminders with callouts.
+* Error logging via a custom object and develop unit tests with HTTP callout mocks to ensure code quality and coverage.
+* Deployment will be done using SFDX to the Developer Org, followed by end-to-end testing to verify notifications, task creation, and error handling.
 ### 6. Asynchronous Processing
 * Bulk SMS/WhatsApp reminders sent using Future Methods / Queueable Apex (to avoid governor limits).
 * Asynchronous jobs update patient records when integrating with external EHR systems.
 * Large-scale data (e.g., 1,000+ patients follow-up schedule) processed in the background.
-### 7. Reporting & Dashboards
-* Dashboards show doctor utilization (appointments per doctor).
-* Patient volume trends and clinic revenue reports.
-* Funnel view of new vs. returning patients.
+### 7. Integration & External Access
+* Configured Named Credentials to securely authenticate with external healthcare APIs using bearer tokens.
+* Set up the API endpoint within Named Credential to avoid hardcoding URLs in Apex callouts.
+* Developed a Queueable Apex class to perform HTTP callouts for syncing appointment data externally.
+### 8. Data Management & Deployment
+* Imported Patient and Doctor data using Data Import Wizard for basic records setup.
+* Used Data Loader to insert Appointment records with lookup fields.
+* Deployed metadata using VS Code and SFDX to enable version control and team collaboration.
+### 9. Reporting, Dashboards & Security Review
+* Created various report types (Tabular, Summary, Matrix, Joined) and dashboards to visualize data.
+* Configured profiles, roles, permission sets, and users for secure access control.
+* Applied OWD, sharing rules, and session settings to manage data visibility and session security.
+### 10. Quality Assurance Testing
+* Designed test cases covering features like Flows, Triggers, Validation Rules, and Approval Processes.
+* Captured inputs, expected results, and actual outputs with mandatory screenshots for each test.
+* Summarized the testing approach, highlighted future enhancements, and concluded project outcomes.
